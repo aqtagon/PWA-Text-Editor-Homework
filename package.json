@@ -12,6 +12,7 @@
     "build:client": "cd client && npm run build"
   },
   "devDependencies": {
-    "concurrently": "^5.3.0"
+    "concurrently": "^5.3.0",
+    "webpack-cli": "^5.1.4"
   }
 }

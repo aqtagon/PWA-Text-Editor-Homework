@@ -1,19 +1,15 @@
 {
-  "name": "JATE",
+  "name": "jate-client",
   "version": "1.0.0",
-  "description": "Just Another Text Editor - A PWA Text Editor",
-  "main": "server.js",
+  "description": "Just Another Text Editor - A PWA Text Editor Client",
   "scripts": {
-    "start:dev": "webpack serve --open --mode development",
-    "start": "node server.js",
-    "build": "webpack --mode production",
-    "server": "nodemon server.js --ignore client",
-    "dev": "concurrently \"npm run server\" \"npm run start:dev\"",
-    "install": "npm install",
-    "client": "cd client && npm install && npm run build"
+    "start": "webpack serve --open --mode development",
+    "build": "webpack --mode production"
   },
-  "author": "2U",
-  "license": "UNLICENSED",
+  "dependencies": {
+    "code-mirror-themes": "^1.0.0",
+    "idb": "^6.1.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
@@ -23,20 +19,11 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
-    "http-server": "^0.11.1",
     "style-loader": "^3.2.1",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.0.0",
     "webpack-pwa-manifest": "^4.3.0",
-    "workbox-webpack-plugin": "^6.2.4",
-    "nodemon": "^2.0.4",
-    "concurrently": "^5.2.0"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "code-mirror-themes": "^1.0.0",
-    "idb": "^6.1.2",
-    "if-env": "^1.0.4"
+    "workbox-webpack-plugin": "^6.2.4"
   }
 }

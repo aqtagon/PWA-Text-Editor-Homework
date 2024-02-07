@@ -1,9 +1,16 @@
 {
   "name": "JATE",
+  "version": "1.0.0",
+  "description": "Just Another Text Editor - A PWA Text Editor",
+  "main": "server.js",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "start:dev": "webpack serve --open --mode development",
+    "start": "node server.js",
     "build": "webpack --mode production",
-    "start": "webpack --watchAll"
+    "server": "nodemon server.js --ignore client",
+    "dev": "concurrently \"npm run server\" \"npm run start:dev\"",
+    "install": "npm install",
+    "client": "cd client && npm install && npm run build"
   },
   "author": "2U",
   "license": "UNLICENSED",
@@ -22,10 +29,14 @@
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.0.0",
     "webpack-pwa-manifest": "^4.3.0",
-    "workbox-webpack-plugin": "^6.2.4"
+    "workbox-webpack-plugin": "^6.2.4",
+    "nodemon": "^2.0.4",
+    "concurrently": "^5.2.0"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "code-mirror-themes": "^1.0.0",
-    "idb": "^6.1.2"
+    "idb": "^6.1.2",
+    "if-env": "^1.0.4"
   }
 }

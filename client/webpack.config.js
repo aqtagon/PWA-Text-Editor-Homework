@@ -4,40 +4,33 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = {
-  mode: 'production',
-  // Entry point for your application
-  entry: './src/index.js',
-  // Output configuration for Webpack
+  entry: './src/index.js', // Adjust if your entry file is different
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   plugins: [
-    // Generates an HTML file from a template
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/index.html', // Adjust if your HTML file is located elsewhere
       filename: 'index.html',
     }),
-    // Generates a manifest file for your PWA
     new WebpackPwaManifest({
-      name: 'My Progressive Web App',
-      short_name: 'MyPWA',
-      description: 'My awesome Progressive Web App!',
+      name: 'Just Another Text Editor',
+      short_name: 'JATE',
+      description: 'A simple text editor that works offline.',
       background_color: '#ffffff',
-      crossorigin: 'use-credentials', // Can be null, use-credentials or anonymous
-      inject: true,
-      fingerprints: false,
+      theme_color: '#ffffff',
+      start_url: '/',
       icons: [
         {
-          src: path.resolve('src/assets/icon.png'),
-          sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+          src: path.resolve('src/assets/icon.png'), // Ensure this path is correct
+          sizes: [96, 128, 192, 256, 384, 512],
           destination: path.join('assets', 'icons'),
         },
       ],
     }),
-    // Workbox plugin to generate a service worker
     new InjectManifest({
-      swSrc: './src-sw.js',
+      swSrc: './src-sw.js', // Ensure this path is correct
       swDest: 'service-worker.js',
     }),
   ],
